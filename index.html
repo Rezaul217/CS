@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>S10 PLY Dashboard</title>
-  <link rel="icon"
+
+    <link rel="icon"
           type="image/png"
           href="https://media.istockphoto.com/id/493332608/photo/lightning-letter-p.jpg?s=612x612&w=0&k=20&c=nZQeNeNbKy-DtT6NGgREnQfrFKq9AO6lwejMUX2I_14=">
-    
-    <!-- LOGIN SESSION GUARD: prevent direct dashboard access -->
+
+    <!-- LOGIN SESSION GUARD -->
     <script>
     (function () {
         const user = localStorage.getItem("user");
@@ -32,78 +34,78 @@
 
 </head>
 
-
 <body data-brand="S10">
-
 
 <div class="app-container">
 
-
     <!-- HEADER -->
-
     <header class="header">
 
         <div class="logo">
-
             SUPER10 <span>PLY INVESTIGATION</span>
-
         </div>
-
 
         <div class="header-right">
 
             <div class="logged-user" id="loggedUser"></div>
-            <button type="button" class="logout-btn" onclick="logoutPortal()" title="Logout">
+
+            <button type="button"
+                    class="logout-btn"
+                    onclick="logoutPortal()"
+                    title="Logout">
                 ↪ LOGOUT
             </button>
-
 
             <button
                 class="theme-toggle"
                 id="themeToggle"
                 onclick="toggleTheme()">
-
                 ☀️ Light Mode
-
             </button>
 
-
             <div class="header-status">
-
                 <span class="status-dot"></span>
-
                 SYSTEM ONLINE
-
             </div>
 
         </div>
 
     </header>
 
-
-
     <!-- LEFT BRAND SIDEBAR -->
-
     <aside class="brand-navigation">
 
+        <!-- =====================================
+             NAVIGATION ORDER:
+             1. LIVE SEARCH
+             2. LIVE PENDING
+             3. AGENT SUMMARY
+             4. BRAND LIST
+        ====================================== -->
 
-        <button
-            class="brand-btn active"
-            onclick="showBrand('S10')">
-
-            S10
-
-        </button>
-
-
-        <div class="brand-slider" id="brandSlider"></div>
-
-
-        <!-- AGENT SUMMARY AND LIVE PENDING BUTTONS -->
-
+        <!-- LIVE SEARCH - FIRST -->
         <div class="agent-navigation">
 
+            <button
+                class="agent-slider-btn sheet-search-nav-btn"
+                id="sheetSearchButton"
+                onclick="showAllSheetSearch()">
 
+                📦 LIVE Search
+
+            </button>
+
+            <!-- LIVE PENDING - SECOND -->
+            <button
+                class="agent-slider-btn"
+                id="livePendingButton"
+                onclick="showLivePending()">
+
+                LIVE PENDING
+
+            </button>
+
+            <!-- AGENT SUMMARY - THIRD -->
             <button
                 class="agent-slider-btn"
                 id="agentSummaryButton"
@@ -113,45 +115,29 @@
 
             </button>
 
-
-            <button
-                class="agent-slider-btn"
-                id="livePendingButton"
-                onclick="showLivePending()">
-
-                LIVE PENDING 
-
-            </button>
-
-            <button
-                class="agent-slider-btn sheet-search-nav-btn"
-                id="sheetSearchButton"
-                onclick="showAllSheetSearch()">
-
-                📦 LIVE Sreach
-
-            </button>
-
-
         </div>
+<br>
+        <!-- BRAND LIST - BELOW NAVIGATION -->
+        <button
+            class="brand-btn active"
+            onclick="showBrand('S10')">
 
+            S10
+
+        </button>
+
+        <div class="brand-slider" id="brandSlider"></div>
 
     </aside>
 
-
-
     <!-- MAIN CONTENT -->
-
     <main class="main-content">
-
 
         <!-- =====================================
              BRAND DASHBOARD PAGE
         ====================================== -->
 
-
         <!-- PAGE HEADING -->
-
         <div class="page-heading" id="brandPageHeading">
 
             <h1 id="pageTitle">S10 All OVER</h1>
@@ -164,45 +150,30 @@
 
         </div>
 
-
-
         <!-- TWO TABLES -->
-
         <section
             class="tables-section"
             id="brandTablesSection">
 
-
             <!-- CS-PROVIDE VIDEO TABLE -->
-
             <div class="table-card">
 
                 <div class="table-title video-title">
-
                     CS-PROVIDE VIDEO
-
                 </div>
-
 
                 <div class="table-scroll">
 
                     <table>
 
                         <thead>
-
                             <tr>
-
                                 <th>Payment Method</th>
-
                                 <th>Count</th>
-
                             </tr>
-
                         </thead>
 
-
                         <tbody id="videoTable"></tbody>
-
 
                         <tfoot id="videoTotal"></tfoot>
 
@@ -212,38 +183,25 @@
 
             </div>
 
-
-
             <!-- CS-REFUND TABLE -->
-
             <div class="table-card">
 
                 <div class="table-title refund-title">
-
                     CS-REFUND
-
                 </div>
-
 
                 <div class="table-scroll">
 
                     <table>
 
                         <thead>
-
                             <tr>
-
                                 <th>Payment Method</th>
-
                                 <th>Count</th>
-
                             </tr>
-
                         </thead>
 
-
                         <tbody id="refundTable"></tbody>
-
 
                         <tfoot id="refundTotal"></tfoot>
 
@@ -253,22 +211,14 @@
 
             </div>
 
-
         </section>
-
-
 
         <br id="brandBreak">
 
-
-
         <!-- SUMMARY CARDS -->
-
         <section class="dashboard-cards">
 
-
             <!-- CS-PROVIDE VIDEO -->
-
             <div class="dashboard-card video-card">
 
                 <p>CS-PROVIDE VIDEO</p>
@@ -277,10 +227,7 @@
 
             </div>
 
-
-
             <!-- CS-REFUND -->
-
             <div class="dashboard-card refund-card">
 
                 <p>CS-REFUND</p>
@@ -289,175 +236,147 @@
 
             </div>
 
-
         </section>
 
-
-
-        <!-- =====================================
-             BRAND WISE REFERENCE SECTION
-        ====================================== -->
-
+        <!-- BRAND WISE REFERENCE SECTION -->
         <section
             class="reference-section"
             id="referenceSection">
 
             <div id="referenceContent">
-
                 Loading References...
-
             </div>
 
         </section>
 
-
-
         <!-- =====================================
              AGENT SUMMARY SEPARATE PAGE
         ====================================== -->
-
         <section
             id="agentSummaryPage"
             style="display:none;">
 
-
             <div class="page-heading">
-
                 <h1>ALL BRAND AGENT SUMMARY</h1>
-
             </div>
-
-
 
             <section class="agent-summary-section">
 
+                <div class="agent-summary-heading">
 
-<div class="agent-summary-heading">
+                    <div class="agent-summary-title-group">
 
-    <div class="agent-summary-title-group">
-        <h2>ALL BRAND AGENT SUMMARY</h2>
-        <p>CS-PROVIDE VIDEO - Highest to Lowest</p>
-    </div>
+                        <h2>ALL BRAND AGENT SUMMARY</h2>
 
-    <div class="agent-summary-toolbar">
-        <div class="agent-search-box">
-            <span aria-hidden="true">⌕</span>
-            <input
-                type="search"
-                id="agentSummarySearch"
-                placeholder="Search agent, reference ID, channel or brand..."
-                aria-label="Search Agent Summary"
-                oninput="filterAgentSummary()">
-            <button type="button" onclick="clearAgentSummarySearch()" aria-label="Clear search">
-                CLEAR
-            </button>
-        </div>
+                        <p>CS-PROVIDE VIDEO - Highest to Lowest</p>
 
-        <span id="agentSummaryCount" class="agent-summary-count" aria-live="polite">0 agents</span>
+                    </div>
 
-        <button
-            type="button"
-            class="agent-slider-btn agent-download-btn"
-            id="downloadAgentSummaryCSV"
-            onclick="downloadAgentSummaryCSV()">
-            📥 DOWNLOAD CSV
-        </button>
-    </div>
+                    <div class="agent-summary-toolbar">
 
-</div>
+                        <div class="agent-search-box">
 
+                            <span aria-hidden="true">⌕</span>
 
+                            <input
+                                type="search"
+                                id="agentSummarySearch"
+                                placeholder="Search agent, reference ID, channel or brand..."
+                                aria-label="Search Agent Summary"
+                                oninput="filterAgentSummary()">
+
+                            <button
+                                type="button"
+                                onclick="clearAgentSummarySearch()"
+                                aria-label="Clear search">
+
+                                CLEAR
+
+                            </button>
+
+                        </div>
+
+                        <span
+                            id="agentSummaryCount"
+                            class="agent-summary-count"
+                            aria-live="polite">
+
+                            0 agents
+
+                        </span>
+
+                        <button
+                            type="button"
+                            class="agent-slider-btn agent-download-btn"
+                            id="downloadAgentSummaryCSV"
+                            onclick="downloadAgentSummaryCSV()">
+
+                            📥 DOWNLOAD CSV
+
+                        </button>
+
+                    </div>
+
+                </div>
 
                 <div class="agent-summary-table-wrapper">
 
-
                     <table class="agent-summary-table">
-
 
                         <thead>
 
                             <tr>
-				<th>Channel Name</th>
+
+                                <th>Channel Name</th>
                                 <th>Agent Number</th>
-
                                 <th>Reference ID</th>
-
                                 <th>CS-PROVIDE VIDEO Total</th>
 
-
                                 <th>DARAZPLAY</th>
-
                                 <th>KV8</th>
-
                                 <th>HEYBAJI</th>
-
                                 <th>JEETBANGLA</th>
-
                                 <th>JEETWAY</th>
-
                                 <th>SUPERBAJI</th>
-
                                 <th>SBJ66</th>
-
                                 <th>BETJDB</th>
-
                                 <th>BN88</th>
-
                                 <th>BDVEGAS</th>
-
                                 <th>CPC88</th>
-
                                 <th>DESHI777</th>
 
                             </tr>
 
                         </thead>
 
-
-
                         <tbody id="agentSummaryTable">
 
                             <tr>
-
                                 <td colspan="16">Loading...</td>
-
                             </tr>
 
                         </tbody>
 
-
                     </table>
-
 
                 </div>
 
-
             </section>
 
-
         </section>
-
-
 
         <!-- =====================================
              LIVE PENDING SEPARATE PAGE
         ====================================== -->
-
         <section
             id="livePendingPage"
             style="display:none;">
 
-
             <div class="page-heading">
-
                 <h1>LIVE PENDING</h1>
-
             </div>
 
-
-
             <section class="live-pending-section">
-
 
                 <div class="live-pending-heading">
 
@@ -467,93 +386,154 @@
 
                 </div>
 
-
-
                 <!-- BRAND WISE LIVE PENDING TABLES -->
-
                 <div id="livePendingTables">
-
                     Loading Live Pending...
-
                 </div>
-
 
             </section>
 
-
         </section>
-
-
-
 
         <!-- =====================================
              SEARCH ALL 12 GOOGLE SHEETS
         ====================================== -->
-        <section id="allSheetSearchPage" class="all-sheet-search-page" style="display:none;">
+        <section
+            id="allSheetSearchPage"
+            class="all-sheet-search-page"
+            style="display:none;">
+
             <div class="page-heading">
+
                 <h1>S10 BRAND SEARCH Also backup</h1>
+
             </div>
 
             <section class="sheet-search-panel">
+
                 <div class="sheet-search-header">
+
                     <div>
+
                         <h2>PLY Search</h2>
-                        <p>Search any word across the original 12 brand sheets (columns A:W).</p>
+
+                        <p>
+                            Search any word across the original 12 brand sheets
+                            (columns A:W).
+                        </p>
+
                     </div>
-                    <div class="sheet-live-status" id="sheetLiveStatus"><span class="sheet-status-dot"></span> Ready to search</div>
+
+                    <div
+                        class="sheet-live-status"
+                        id="sheetLiveStatus">
+
+                        <span class="sheet-status-dot"></span>
+                        Ready to search
+
+                    </div>
+
                 </div>
+
                 <div class="sheet-search-controls">
-                    <input type="search" id="allSheetSearchInput" placeholder="Enter any word, agent number, reference ID, payment, status..." aria-label="Search S10 across original 12 brands" onkeydown="if(event.key==='Enter') searchAllSheets()">
-                    <button type="button" class="sheet-search-btn" onclick="searchAllSheets()">🔎 SEARCH</button>
-                    <button type="button" class="sheet-refresh-btn" onclick="refreshAllSheetSearch()">↻ LIVE REFRESH</button>
+
+                    <input
+                        type="search"
+                        id="allSheetSearchInput"
+                        placeholder="Enter any word, agent number, reference ID, payment, status..."
+                        aria-label="Search S10 across original 12 brands"
+                        onkeydown="if(event.key==='Enter') searchAllSheets()">
+
+                    <button
+                        type="button"
+                        class="sheet-search-btn"
+                        onclick="searchAllSheets()">
+
+                        🔎 SEARCH
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sheet-refresh-btn"
+                        onclick="refreshAllSheetSearch()">
+
+                        ↻ LIVE REFRESH
+
+                    </button>
+
                 </div>
+
                 <div class="sheet-search-meta">
-                    <span id="sheetSearchResultCount">No search performed</span>
-                    <span id="sheetSearchUpdatedAt">Sheet status: not checked yet</span>
+
+                    <span id="sheetSearchResultCount">
+                        No search performed
+                    </span>
+
+                    <span id="sheetSearchUpdatedAt">
+                        Sheet status: not checked yet
+                    </span>
+
                 </div>
+
                 <div class="sheet-search-results-wrap">
+
                     <table class="sheet-search-results-table">
-                        <thead><tr>
-                            <th>Brand</th>
-                            <th>Payment Method</th>
-                            <th>Agent Number</th>
-                            <th>Username</th>
-                            <th>PG Status</th>
-                            <th>Cash Out Number</th>
-                            <th>Reference ID</th>
-                            <th>Amount</th>
-                            <th>Cart ID</th>
-                            <th>Payment Status</th>
-                        </tr></thead>
-                        <tbody id="allSheetSearchResults"><tr><td colspan="10">Enter a search word and click SEARCH.</td></tr></tbody>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Brand</th>
+                                <th>Payment Method</th>
+                                <th>Agent Number</th>
+                                <th>Username</th>
+                                <th>PG Status</th>
+                                <th>Cash Out Number</th>
+                                <th>Reference ID</th>
+                                <th>Amount</th>
+                                <th>Cart ID</th>
+                                <th>Payment Status</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="allSheetSearchResults">
+
+                            <tr>
+                                <td colspan="10">
+                                    Enter a search word and click SEARCH.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
                     </table>
+
                 </div>
-                <p class="sheet-search-footnote">Deposit searches live data from the original 12 brand sheets when you search or click Live Refresh. Results are limited to 300 matches for performance.</p>
+
+                <p class="sheet-search-footnote">
+                    Search uses live data from the original 12 brand sheets
+                    when you search or click Live Refresh. Results are limited
+                    to 300 matches for performance.
+                </p>
+
             </section>
+
         </section>
 
     </main>
 
-
-
     <!-- FOOTER -->
-
     <footer class="footer">
-
         PLY INVESTIGATION SYSTEM
-
     </footer>
-
 
 </div>
 
-
-
 <!-- JAVASCRIPT -->
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
