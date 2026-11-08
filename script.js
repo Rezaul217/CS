@@ -192,7 +192,7 @@ function showBrand(brand) {
     setElementDisplay("agentSummaryPage", "none");
     setElementDisplay("livePendingPage", "none");
 
-    ["agentSummaryButton", "livePendingButton"].forEach(id => {
+    ["agentSummaryButton", "livePendingButton", "sheetSearchButton"].forEach(id => {
 
         const button = document.getElementById(id);
 
@@ -1435,17 +1435,10 @@ function showAgentSummary() {
     setElementDisplay("livePendingPage", "none");
     setElementDisplay("agentSummaryPage", "block");
 
-    const agentButton = document.getElementById("agentSummaryButton");
-
-    if (agentButton) {
-        agentButton.classList.add("active");
-    }
-
-    const pendingButton = document.getElementById("livePendingButton");
-
-    if (pendingButton) {
-        pendingButton.classList.remove("active");
-    }
+    ["agentSummaryButton", "livePendingButton", "sheetSearchButton"].forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.classList.toggle("active", id === "agentSummaryButton");
+    });
 
     document.querySelectorAll(".brand-btn").forEach(button => {
         button.classList.remove("active");
@@ -1483,17 +1476,10 @@ function showLivePending() {
     setElementDisplay("agentSummaryPage", "none");
     setElementDisplay("livePendingPage", "block");
 
-    const pendingButton = document.getElementById("livePendingButton");
-
-    if (pendingButton) {
-        pendingButton.classList.add("active");
-    }
-
-    const agentButton = document.getElementById("agentSummaryButton");
-
-    if (agentButton) {
-        agentButton.classList.remove("active");
-    }
+    ["agentSummaryButton", "livePendingButton", "sheetSearchButton"].forEach(id => {
+        const button = document.getElementById(id);
+        if (button) button.classList.toggle("active", id === "livePendingButton");
+    });
 
     document.querySelectorAll(".brand-btn").forEach(button => {
         button.classList.remove("active");
