@@ -2398,3 +2398,64 @@ body[data-theme="light"][data-brand="DESHI777"] .app-container {
 
 /* Clear source badge for records moved to the BackuP tab */
 .backup-result-label { display:inline-block; margin-left:8px; padding:3px 7px; border-radius:5px; background:#f59e0b; color:#111827; font-size:10px; font-weight:900; letter-spacing:.5px; vertical-align:middle; }
+
+
+/* ==========================================
+   FINAL SIDEBAR ORDER / SPACING FIX
+   Top: LIVE Search, LIVE Pending, Agent Summary
+   Below: S10 and all dynamically-created brands
+========================================== */
+.brand-navigation {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    padding-top: 6px !important;
+    margin-top: 0 !important;
+    gap: 0 !important;
+}
+
+.brand-navigation > .agent-navigation {
+    order: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+    border-top: 0 !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+}
+
+.brand-navigation > .brand-btn {
+    order: 2 !important;
+    flex-shrink: 0 !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.brand-navigation > .brand-slider {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+}
+
+.brand-slider .brand-btn {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 550px) {
+    .brand-navigation {
+        padding-top: 6px !important;
+    }
+    .brand-navigation > .agent-navigation {
+        margin-bottom: 10px !important;
+    }
+}
